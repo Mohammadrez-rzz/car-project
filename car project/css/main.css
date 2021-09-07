@@ -1,0 +1,190 @@
+*{
+  margin: 0 ;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+@font-face {
+  font-family: ir_sans;
+  src: url("../font/ir-sans.ttf");
+}
+
+body{
+  font-family: ir_sans;
+  background-color: #888888;
+  transition: 2.4s;
+}
+header{
+  display: flex;
+  margin-top: 2%;
+  justify-content: space-between;
+  width: 96%;
+  margin-left: 1.6%;
+}
+header .header_icons{
+  width: 20px;
+}
+header .header_icons:hover{
+  cursor: pointer;
+}
+section{
+  position: relative;
+  width: 100%;
+  height: 89.5vh ;
+}
+section .machin_image{
+  width: 60%;
+  height: 65%;
+  position: absolute;
+  top: 20%;
+}
+section .machin_image img{
+  width: 90%;
+  height: 100%;
+}
+
+section .information{
+  width: 33%;
+  height: 65% ;
+  position: absolute;
+  top: 20%;
+  left: 59%;
+  direction: rtl;
+  text-align: justify;
+}
+section .information #title{
+  font-size: 40px;
+  height: 65px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #f1efef;
+}
+section .information #summary{
+  font-size: 16px;
+  height: 128px;
+  line-height: 2;
+  margin-top: 25px;
+  color: #f1efef;
+}
+section .information #price{
+  font-size: 30px;
+  margin-top: 25px;
+  height: 50px;
+  color: #f1efef;
+}
+section .information .sell_bottom{
+  width: 110px;
+  height: 30px;
+  background-color: #2b9ab3;
+  margin-top: 25px;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 5px;
+  color: #f1efef;
+  position: relative;
+}
+section .information .sell_bottom:hover{
+  cursor: pointer;
+}
+section .information .sell_bottom .sel_img{
+  position: absolute;
+  top: 6px;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+section .speed_damage_rush{
+  width: 27% ;
+  height: 7% ;
+  position: absolute;
+  bottom: -10px;
+  left: 64%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #acabab;
+}
+
+section .arrow_button{
+  width: 80px ;
+  height: 25px ;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+section .arrow_button:hover{
+  cursor: pointer;
+}
+section .arrow_button #right{
+  flex: 1;
+  border-left: solid 1px ;
+  background-color: #929292;
+}
+section .arrow_button #left{
+  flex: 1;
+  background-color: #727272;
+  opacity: 0.7;
+}
+section .arrow_button .chevron {
+  margin-left: 7px;
+  margin-top: 2px;
+  width: 25px;
+  height: 20px;
+}
+section .icons{
+
+  width: 25px;
+  height: 65%;
+  position: relative;
+  top: 35%;
+  left: 96%;
+  display: flex;
+  flex-direction: column;
+}
+section .icons img{
+  margin-top: 18px;
+  width: 18px ;
+  height: 18px;
+}
+section .icons img:hover{
+  cursor: pointer;
+}
+section .icons span{
+  background-color: #acabab;
+  width: 2px;
+  height: 45px ;
+  margin-bottom: 1px;
+  align-self: flex-end;
+  border-radius: 2px;
+}
+section .icons .first_color{
+  background-color: #2b9ab3;
+}
+section .icons .last{
+  margin-bottom: auto;
+}
+section .icons .Active_spans_color{
+  background-color:  #2b9ab3;
+}
+.animation{
+  animation-name: backInUp ;
+  animation-duration: 1s;
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+.fadeInRight {
+  animation-name: fadeInRight;
+  animation-duration: 0.5s;
+}
+.fadeOutRight {
+  animation-name: fadeOutRight;
+  animation-duration: 0.5s;
+}
+.fadeInRight_div{
+  animation-name: fadeInRight_div;
+  animation-duration: 1.8s;
+}

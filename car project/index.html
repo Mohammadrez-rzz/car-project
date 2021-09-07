@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script src="js/cars.js"></script>
+</head>
+<body>
+  <header>
+    <img src="img/bell.png" class="header_icons">
+    <img src="img/car.png" class="header_icons">
+  </header>
+  <section>
+        <div class="machin_image">
+          <img src="img/mercedes1.png">
+        </div>
+        <div class="information">
+          <p id="title">
+            خودرو شماره یک
+          </p>
+          <p id="summary">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+          </p>
+          <p id="price">
+            ۲۲۱ هزار دلار
+          </p>
+          <div onmouseover="mouseover()" onmouseout="mouseout()" class="sell_bottom">پرداخت
+            <img class="sel_img" src="img/chevron-small-left.png">
+          </div>
+        </div>
+      <div class="speed_damage_rush">
+          <span>۱۲۰ اسب بخار</span>
+          <span> کیلومتر در ساعت</span>
+          <span>۷.۱ ثانیه شتاب</span>
+      </div>
+    <div class="arrow_button">
+      <span onclick="click_onleft()" id="left">
+        <img class="chevron" src="img/chevron-small-left.png">
+      </span>
+      <span onclick="click_onright()" id="right">
+        <img class="chevron" src="img/chevron-small-right.png">
+      </span>
+    </div>
+    <div class="icons">
+      <span class="first_color"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="last"></span>
+      <img  src="img/facebook.png">
+      <img src="img/twitter.png">
+      <img src="img/google.png">
+    </div>
+  </section>
+</body>
+</html>
+
+
+<script>
+  var body = document.getElementsByTagName("body");
+  var information_div = document.getElementsByClassName("information")[0].children;
+  var informations = document.querySelectorAll("section .information p");
+  var rush = document.querySelectorAll("section .speed_damage_rush") ;
+  var speedinfo = document.querySelectorAll("section .speed_damage_rush span ") ;
+  var mashin_img = document.querySelectorAll("section .machin_image img") ;
+  var slider_menue = document.querySelectorAll("section .icons span") ;
+  var left_right_btn = document.querySelectorAll("section .arrow_button span");
+  var sell_img = document.querySelector("section .information .sell_bottom .sel_img");
+  mashin_img[0].addEventListener("animationend", myEndFunction) ;
+  rush[0].addEventListener("animationend", myEndFunction1) ;
+  information_div[0].addEventListener("animationend" , myEndFunction2 ) ;
+  information_div[3].addEventListener("animationend" , myEndFunction3 ) ;
+  var animate_done  = 0 ;
+var slideindex = 0 ;
+function click_onleft() {
+  if(slideindex > 0 && animate_done === 0){
+    slideindex-- ;
+    body[0].style.backgroundColor = cars[slideindex].theme ;
+    mashin_img[0].setAttribute("src" , "img/" + cars[slideindex].image) ;
+    mashin_img[0].classList.add("animation");
+    animate_done = 1 ;
+    rush[0].classList.add("fadeInUp");
+    for (let i = 0; i < cars[slideindex].specifications.length ; i++) {
+      speedinfo[i].innerHTML = cars[slideindex].specifications[i];
+    }
+    information_div[0].classList.add("fadeOutRight");
+    information_div[1].classList.add("fadeOutRight");
+    information_div[2].classList.add("fadeOutRight");
+    information_div[3].classList.add("fadeInRight_div");
+    if(slideindex === 0){
+      left_right_btn[0].style.backgroundColor = "#727272" ;
+      left_right_btn[0].style.opacity = "0.7" ;
+    }
+    if(slideindex !== 4){
+      left_right_btn[1].style.backgroundColor = "#929292" ;
+      left_right_btn[1].style.opacity = '1';
+    }
+  }
+  slider_menue[slideindex].classList.add("Active_spans_color") ;
+  slider_menue[slideindex+1].classList.remove("Active_spans_color") ;
+}
+function click_onright(){
+  slider_menue[0].classList.remove("first_color");
+    if(slideindex < 4 && animate_done === 0){
+      slideindex++ ;
+      body[0].style.backgroundColor = cars[slideindex].theme ;
+      mashin_img[0].setAttribute("src" , "img/" + cars[slideindex].image) ;
+      mashin_img[0].classList.add("animation");
+      rush[0].classList.add("fadeInUp");
+      information_div[0].classList.add("fadeOutRight");
+      information_div[1].classList.add("fadeOutRight");
+      information_div[2].classList.add("fadeOutRight");
+      information_div[3].classList.add("fadeInRight_div");
+      animate_done = 1 ;
+      for (let i = 0; i < cars[slideindex].specifications.length ; i++) {
+        speedinfo[i].innerHTML = cars[slideindex].specifications[i];
+      }
+      if(slideindex === 4){
+        left_right_btn[1].style.backgroundColor = "#727272" ;
+        left_right_btn[1].style.opacity = '0.7';
+      }
+      if(slideindex !== 0){
+        left_right_btn[0].style.backgroundColor = "#929292" ;
+        left_right_btn[0].style.opacity = '1';
+      }
+    }
+  slider_menue[slideindex].classList.add("Active_spans_color") ;
+  slider_menue[slideindex-1].classList.remove("Active_spans_color") ;
+}
+function myEndFunction(){
+  mashin_img[0].classList.remove("animation");
+  animate_done = 0 ;
+}
+function myEndFunction1(){
+  rush[0].classList.remove("fadeInUp");
+}
+function myEndFunction2(){
+  information_div[0].classList.remove("fadeOutRight");
+  information_div[1].classList.remove("fadeOutRight");
+  information_div[2].classList.remove("fadeOutRight");
+  informations[0].innerHTML =  cars[slideindex].title ;
+  informations[1].innerHTML =  cars[slideindex].summary ;
+  informations[2].innerHTML =  cars[slideindex].price ;
+  information_div[0].classList.add("fadeInRight");
+  information_div[1].classList.add("fadeInRight");
+  information_div[2].classList.add("fadeInRight");
+}
+function myEndFunction3(){
+  information_div[3].classList.remove("fadeInRight_div");
+}
+  function mouseover(){
+    sell_img.style.opacity = '1' ;
+    sell_img.style.left = '4px';
+  }
+  function mouseout(){
+    sell_img.style.opacity = '0' ;
+    sell_img.style.left = '7px';
+  }
+</script>
+
